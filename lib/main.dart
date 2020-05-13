@@ -35,7 +35,13 @@ class MyApp extends StatelessWidget {
                   letterSpacing: 1.5,
                 ),
               ),
-              SizedBox(height: 10.0),
+              SizedBox(
+                height: 20.0,
+                width: 200.0,
+                child: Divider(
+                  color: Colors.purple[50],
+                ),
+              ),
               Container(
                 margin: EdgeInsets.symmetric(horizontal: 5.0),
                 child: Text(
@@ -48,7 +54,22 @@ class MyApp extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 260.0),
+              Container(
+                margin: EdgeInsets.symmetric(vertical: 100.0, horizontal: 50.0),
+                child: SizedBox(
+                  height: 50.0,
+                  width: 100.0,
+                  child: RaisedButton(
+                    child: Text(
+                      'Sign in',
+                      style: TextStyle(
+                        color: Colors.purple[50],
+                      ),
+                    ),
+                    //onPressed: ,
+                  ),
+                ),
+              ), // Button
               Container(
                 margin: EdgeInsets.only(left: 5.0),
                 child: Row(
@@ -70,7 +91,7 @@ class MyApp extends StatelessWidget {
                     ),
                   ],
                 ),
-              ),
+              ), // Dev info LinkedIn
               Container(
                 margin: EdgeInsets.only(left: 5.0),
                 child: Row(
@@ -92,7 +113,7 @@ class MyApp extends StatelessWidget {
                     ),
                   ],
                 ),
-              ),
+              ), // Dev info Github
               Container(
                 margin: EdgeInsets.only(left: 5.0),
                 child: Row(
@@ -114,7 +135,7 @@ class MyApp extends StatelessWidget {
                     ),
                   ],
                 ),
-              ),
+              ), // Devi info gmail
             ],
           ),
         ),
