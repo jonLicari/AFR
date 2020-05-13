@@ -1,7 +1,6 @@
-# afr
+# AFR
 
-A new Flutter application.
-
+Automated Fetching Robot for Assisted Living.
 ## Getting Started
 
 This project is a starting point for a Flutter application.
