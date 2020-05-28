@@ -30,6 +30,7 @@
 .pub/
 /build/
 /images
+/lib/dev_info.dart/_mobile
 
 # Web related
 lib/generated_plugin_registrant.dart

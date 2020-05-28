@@ -1,4 +1,6 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class DevInfo extends StatelessWidget {
   @override
@@ -16,7 +18,7 @@ class DevInfo extends StatelessWidget {
                   backgroundColor: Colors.purple[50],
                   child: CircleAvatar(
                     radius: 54.0,
-                    backgroundImage: AssetImage('images/hdctr.png'),
+                    backgroundImage: AssetImage('images/hdctr.jpg'),
                   ),
                 ),
                 SizedBox(height: 10.0),
@@ -49,6 +51,114 @@ class DevInfo extends StatelessWidget {
                     ),
                   ),
                 ),
+                Expanded(
+                  child: Container(),
+                ),
+                Container(
+                  margin: EdgeInsets.only(left: 10.0, right: 100.0),
+                  child: Row(
+                    children: <Widget>[
+                      Icon(
+                        Icons.person_pin,
+                        color: Colors.purple[50],
+                        size: 22.0,
+                      ),
+                      SizedBox(
+                        width: 10.0,
+                      ),
+                      RaisedButton(
+                        color: Colors.purple[50],
+                        onPressed: _launchLink,
+                        child: Text(
+                          'LinkedIn',
+                          style: TextStyle(
+                            color: Colors.purple[900],
+                            fontSize: 12.0,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ), // Dev info LinkedIn
+                Container(
+                  margin: EdgeInsets.only(left: 10.0, right: 100.0),
+                  child: Row(
+                    children: <Widget>[
+                      Icon(
+                        Icons.insert_link,
+                        color: Colors.purple[50],
+                        size: 22.0,
+                      ),
+                      SizedBox(
+                        width: 10.0,
+                      ),
+                      RaisedButton(
+                        color: Colors.purple[50],
+                        onPressed: _launchGit,
+                        child: Text(
+                          'Github',
+                          style: TextStyle(
+                            color: Colors.purple[900],
+                            fontSize: 12.0,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ), // Dev info Github
+                Container(
+                  margin: EdgeInsets.only(left: 10.0, right: 100.0),
+                  child: Row(
+                    children: <Widget>[
+                      Icon(
+                        Icons.mail_outline,
+                        color: Colors.purple[50],
+                        size: 20.0,
+                      ),
+                      SizedBox(
+                        width: 10.0,
+                      ),
+                      RaisedButton(
+                        color: Colors.purple[50],
+                        onPressed: _launchGmail,
+                        child: Text(
+                          'E-mail',
+                          style: TextStyle(
+                            color: Colors.purple[900],
+                            fontSize: 12.0,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ), // Devi info gmail
+                Container(
+                  margin:
+                      EdgeInsets.only(left: 10.0, right: 100.0, bottom: 10.0),
+                  child: Row(
+                    children: <Widget>[
+                      Icon(
+                        Icons.phone,
+                        color: Colors.purple[50],
+                        size: 20.0,
+                      ),
+                      SizedBox(
+                        width: 10.0,
+                      ),
+                      RaisedButton(
+                        color: Colors.purple[50],
+                        onPressed: _launchSMS,
+                        child: Text(
+                          'Phone',
+                          style: TextStyle(
+                            color: Colors.purple[900],
+                            fontSize: 12.0,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ), // Devi info phone
               ],
             ),
           ),
@@ -56,73 +166,41 @@ class DevInfo extends StatelessWidget {
       ),
     );
   }
+
+  void _launchLink() async {
+    const _url = 'https://www.linkedin.com/in/jonathanlicari/';
+    if (await canLaunch(_url)) {
+      await launch(_url);
+    } else {
+      throw 'Sorry, could not launch $_url';
+    }
+  }
+
+  void _launchGit() async {
+    const _url = 'https://github.com/jonLicari';
+    if (await canLaunch(_url)) {
+      await launch(_url);
+    } else {
+      throw 'Sorry, could not launch $_url';
+    }
+  }
 }
 
-/* Container(
-margin: EdgeInsets.only(left: 5.0),
-child: Row(
-children: <Widget>[
-Icon(
-Icons.person_pin,
-color: Colors.purple[50],
-size: 20.0,
-),
-SizedBox(
-width: 10.0,
-),
-Text(
-'linkedin.com/in/jonathanlicari/',
-style: TextStyle(
-color: Colors.purple[50],
-fontSize: 10.0,
-),
-),
-],
-),
-), // Dev info LinkedIn
-Container(
-margin: EdgeInsets.only(left: 5.0),
-child: Row(
-children: <Widget>[
-Icon(
-Icons.insert_link,
-color: Colors.purple[50],
-size: 20.0,
-),
-SizedBox(
-width: 10.0,
-),
-Text(
-'github.com/jonLicari/AFR',
-style: TextStyle(
-color: Colors.purple[50],
-fontSize: 10.0,
-),
-),
-],
-),
-), // Dev info Github
-Container(
-margin: EdgeInsets.only(left: 5.0),
-child: Row(
-children: <Widget>[
-Icon(
-Icons.mail_outline,
-color: Colors.purple[50],
-size: 20.0,
-),
-SizedBox(
-width: 10.0,
-),
-Text(
-'jlicari@ryerson.ca',
-style: TextStyle(
-color: Colors.purple[50],
-fontSize: 10.0,
-),
-),
-],
-),
-), // Devi info gmail
+void _launchSMS() async {
+  const String _mobile = '6478232848';
+  const _url = 'tel:$_mobile';
+  if (await canLaunch(_url)) {
+    await launch(_url);
+  } else {
+    throw 'Sorry, could not launch $_url';
+  }
+}
 
- */
+void _launchGmail() async {
+  const _url = 'mailto<jlicari@ryerson.ca>?subject=<News&body=New%20plugin';
+  if (await canLaunch(_url)) {
+    await launch(_url);
+  } else {
+    throw 'Sorry, could not launch $_url';
+  }
+}

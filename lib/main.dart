@@ -5,7 +5,10 @@ import 'package:afr/home.dart';
 import 'package:flutter/services.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(MaterialApp(
+    title: 'AFR',
+    home: MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -47,7 +50,7 @@ class MyApp extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.symmetric(horizontal: 5.0),
+                  //margin: EdgeInsets.symmetric(horizontal: 5.0),
                   child: Text(
                     'The Autonomous Fetching Robot, made for Assisted Living.',
                     textAlign: TextAlign.center,
@@ -59,8 +62,7 @@ class MyApp extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  margin:
-                      EdgeInsets.symmetric(vertical: 100.0, horizontal: 50.0),
+                  margin: EdgeInsets.only(top: 50.0),
                   child: SizedBox(
                     height: 50.0,
                     width: 100.0,
@@ -75,27 +77,31 @@ class MyApp extends StatelessWidget {
                       onPressed: () {
                         //setState(() {
                         print('button pressed');
+
                         // });
                       },
                     ),
                   ),
                 ), // Button
 
-                Align(
-                  alignment: Alignment.bottomLeft,
-                  child: RaisedButton(
-                    child: Icon(
-                      Icons.info_outline,
-                      color: Colors.purple[900],
+                Expanded(
+                  child: Align(
+                    alignment: Alignment.bottomLeft,
+                    child: RaisedButton(
+                      child: Icon(
+                        Icons.info_outline,
+                        color: Colors.purple[900],
+                      ),
+                      shape: CircleBorder(),
+                      color: Colors.purple[50],
+                      onPressed: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => DevInfo()));
+                      },
                     ),
-                    shape: CircleBorder(),
-                    color: Colors.purple[50],
-                    onPressed: () {
-                      print('Bootun preesed');
-                      return DevInfo();
-                    },
                   ),
                 ),
+                SizedBox(height: 20.0),
               ],
             ),
           ),
