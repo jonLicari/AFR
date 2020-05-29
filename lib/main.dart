@@ -77,10 +77,8 @@ class MyApp extends StatelessWidget {
                           ),
                         ),
                         onPressed: () {
-                          //setState(() {
-                          print('button pressed');
-
-                          // });
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) => Home()));
                         },
                       ),
                     ),
