@@ -9,6 +9,7 @@ class DevInfo extends StatelessWidget {
       home: Scaffold(
         backgroundColor: Colors.purple[900],
         appBar: AppBar(
+          centerTitle: true,
           leading: Container(
             color: Colors.purple[900],
             margin: EdgeInsets.all(6.0),

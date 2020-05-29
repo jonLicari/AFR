@@ -2,7 +2,6 @@ import 'package:afr/dev_info.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:afr/home.dart';
-import 'package:flutter/services.dart';
 
 void main() {
   runApp(MaterialApp(
