@@ -50,7 +50,7 @@ class MyApp extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  //margin: EdgeInsets.symmetric(horizontal: 5.0),
+                  margin: EdgeInsets.symmetric(horizontal: 10.0),
                   child: Text(
                     'The Autonomous Fetching Robot, made for Assisted Living.',
                     textAlign: TextAlign.center,
@@ -61,29 +61,31 @@ class MyApp extends StatelessWidget {
                     ),
                   ),
                 ),
-                Container(
-                  margin: EdgeInsets.only(top: 50.0),
-                  child: SizedBox(
-                    height: 50.0,
-                    width: 100.0,
-                    child: RaisedButton(
-                      color: Colors.purple[50],
-                      child: Text(
-                        'Sign in',
-                        style: TextStyle(
-                          color: Colors.purple[900],
+                SizedBox(height: 20.0),
+                Expanded(
+                  child: Container(
+                    margin: EdgeInsets.symmetric(vertical: 50.0),
+                    child: SizedBox(
+                      height: 50.0,
+                      width: 100.0,
+                      child: RaisedButton(
+                        color: Colors.purple[50],
+                        child: Text(
+                          'Sign in',
+                          style: TextStyle(
+                            color: Colors.purple[900],
+                          ),
                         ),
-                      ),
-                      onPressed: () {
-                        //setState(() {
-                        print('button pressed');
+                        onPressed: () {
+                          //setState(() {
+                          print('button pressed');
 
-                        // });
-                      },
+                          // });
+                        },
+                      ),
                     ),
                   ),
                 ), // Button
-
                 Expanded(
                   child: Align(
                     alignment: Alignment.bottomLeft,
@@ -101,7 +103,7 @@ class MyApp extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(height: 20.0),
+                SizedBox(height: 10.0),
               ],
             ),
           ),
